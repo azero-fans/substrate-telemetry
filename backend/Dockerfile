@@ -19,7 +19,7 @@ COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY --from=builder /app/target/$PROFILE/telemetry_shard /usr/local/bin
 COPY --from=builder /app/target/$PROFILE/telemetry_core /usr/local/bin
 
-RUN useradd -m -u 1000 -U telemetry && \
+RUN useradd -m -u 1002 -U telemetry && \
     apt-get -y update && \
     apt-get -y install openssl && \
     apt-get autoremove -y && \
