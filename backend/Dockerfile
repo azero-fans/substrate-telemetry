@@ -19,5 +19,7 @@ COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY --from=builder /app/target/$PROFILE/telemetry_shard /usr/local/bin
 COPY --from=builder /app/target/$PROFILE/telemetry_core /usr/local/bin
 
+RUN useradd -m -U -s /bin/bash telemetry 
+
 USER telemetry
 EXPOSE 8000
